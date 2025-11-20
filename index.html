@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Help</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+
+        .button {
+            padding: 30px 60px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background-color: #dc2626;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(220, 38, 38, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .button:hover {
+            background-color: #b91c1c;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(220, 38, 38, 0.5);
+        }
+
+        .button:active {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(220, 38, 38, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <button class="button" onclick="window.location.href='https://www.anthropic.com/pricing'">
+        Click Here for Coding Help
+    </button>
+</body>
+</html>
