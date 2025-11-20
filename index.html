@@ -291,6 +291,40 @@
             box-shadow: 0 12px 40px rgba(37, 99, 235, 0.5);
         }
 
+        .button-dan {
+            position: fixed;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #7c3aed;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .button-dan.visible {
+            opacity: 1;
+            pointer-events: auto;
+            animation: buttonFadeIn 1s ease-out forwards;
+        }
+
+        .button-dan:hover {
+            background-color: #6d28d9;
+            transform: translate(-50%, -50%) translateY(-4px);
+            box-shadow: 0 12px 40px rgba(124, 58, 237, 0.5);
+        }
+
         .button {
             position: fixed;
             top: 50%;
@@ -374,6 +408,10 @@
         Follow Yuni
     </button>
 
+    <button class="button-dan" id="danButton" onclick="window.location.replace('https://www.upwork.com/hire/coders/')">
+        Follow Dan
+    </button>
+
     <!-- Invisible background music player -->
     <audio id="bgMusic" loop style="display: none;">
         <source src="https://cdn.pixabay.com/audio/2022/10/25/audio_380ed4cc45.mp3" type="audio/mpeg">
@@ -397,6 +435,7 @@
         const yuniArrow = document.getElementById('yuniArrow');
         const radiantButton = document.getElementById('radiantButton');
         const yuniButton = document.getElementById('yuniButton');
+        const danButton = document.getElementById('danButton');
 
         const radiantTexts = [
             "Wait!",
@@ -510,11 +549,12 @@
                 yuniIndex++;
                 typeText(yuniTexts[yuniIndex], yuniDialogue, yuniArrow);
             } else {
-                // After last Yuni dialogue, show both buttons
+                // After last Yuni dialogue, show all buttons
                 yuniArrow.classList.remove('visible');
                 canAdvance = false;
                 radiantButton.classList.add('visible');
                 yuniButton.classList.add('visible');
+                danButton.classList.add('visible');
             }
         }
 
@@ -545,7 +585,7 @@
         // Click handler for advancing dialogue
         document.addEventListener('click', (e) => {
             // Don't advance if clicking any button
-            if (e.target === buttonElement || e.target === radiantButton || e.target === yuniButton) return;
+            if (e.target === buttonElement || e.target === radiantButton || e.target === yuniButton || e.target === danButton) return;
 
             if (inYuniMode) {
                 advanceYuniDialogue();
