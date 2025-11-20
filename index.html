@@ -106,6 +106,191 @@
             50% { opacity: 1; transform: translateX(3px); }
         }
 
+        .radiant-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.5s ease-out;
+            z-index: 50;
+        }
+
+        .radiant-container.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .radiant-container img {
+            width: 150px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .radiant-dialogue {
+            background: rgba(0, 0, 0, 0.85);
+            border: 2px solid #444;
+            border-radius: 8px;
+            padding: 15px 25px;
+            margin-top: 10px;
+            max-width: 200px;
+        }
+
+        .radiant-text {
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .radiant-arrow {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid #fff;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            opacity: 0;
+            animation: pulseArrow 1s ease-in-out infinite;
+        }
+
+        .radiant-arrow.visible {
+            opacity: 1;
+        }
+
+        .yuni-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.5s ease-out;
+            z-index: 50;
+        }
+
+        .yuni-container.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .yuni-container img {
+            width: 150px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .yuni-dialogue {
+            background: rgba(0, 0, 0, 0.85);
+            border: 2px solid #444;
+            border-radius: 8px;
+            padding: 15px 25px;
+            margin-top: 10px;
+            max-width: 200px;
+            position: relative;
+        }
+
+        .yuni-text {
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .yuni-arrow {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid #fff;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            opacity: 0;
+            animation: pulseArrow 1s ease-in-out infinite;
+        }
+
+        .yuni-arrow.visible {
+            opacity: 1;
+        }
+
+        .button-radiant {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            padding: 20px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #dc2626;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(220, 38, 38, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .button-radiant.visible {
+            opacity: 1;
+            pointer-events: auto;
+            animation: buttonFadeIn 1s ease-out forwards;
+        }
+
+        .button-radiant:hover {
+            background-color: #b91c1c;
+            transform: translateY(-50%) translateY(-4px);
+            box-shadow: 0 12px 40px rgba(220, 38, 38, 0.5);
+        }
+
+        .button-yuni {
+            position: fixed;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            padding: 20px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #2563eb;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .button-yuni.visible {
+            opacity: 1;
+            pointer-events: auto;
+            animation: buttonFadeIn 1s ease-out forwards;
+        }
+
+        .button-yuni:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-50%) translateY(-4px);
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.5);
+        }
+
         .button {
             position: fixed;
             top: 50%;
@@ -165,6 +350,30 @@
         Help Me Code
     </button>
 
+    <div class="radiant-container" id="radiantContainer">
+        <img src="img/radiant.png" alt="Radiant">
+        <div class="radiant-dialogue">
+            <p class="radiant-text" id="radiantDialogue"></p>
+            <div class="radiant-arrow" id="radiantArrow"></div>
+        </div>
+    </div>
+
+    <div class="yuni-container" id="yuniContainer">
+        <img src="img/yuni.png" alt="Yuni">
+        <div class="yuni-dialogue">
+            <p class="yuni-text" id="yuniDialogue"></p>
+            <div class="yuni-arrow" id="yuniArrow"></div>
+        </div>
+    </div>
+
+    <button class="button-radiant" id="radiantButton" onclick="window.location.replace('https://chatgpt.com')">
+        Follow Radiant
+    </button>
+
+    <button class="button-yuni" id="yuniButton" onclick="window.location.replace('https://developer.mozilla.org/en-US/docs/Web/JavaScript')">
+        Follow Yuni
+    </button>
+
     <!-- Invisible background music player -->
     <audio id="bgMusic" loop style="display: none;">
         <source src="https://cdn.pixabay.com/audio/2022/10/25/audio_380ed4cc45.mp3" type="audio/mpeg">
@@ -180,30 +389,58 @@
         const dialogueElement = document.getElementById('dialogue');
         const buttonElement = document.getElementById('helpButton');
         const nextArrow = document.getElementById('nextArrow');
+        const radiantContainer = document.getElementById('radiantContainer');
+        const radiantDialogue = document.getElementById('radiantDialogue');
+        const radiantArrow = document.getElementById('radiantArrow');
+        const yuniContainer = document.getElementById('yuniContainer');
+        const yuniDialogue = document.getElementById('yuniDialogue');
+        const yuniArrow = document.getElementById('yuniArrow');
+        const radiantButton = document.getElementById('radiantButton');
+        const yuniButton = document.getElementById('yuniButton');
+
+        const radiantTexts = [
+            "Wait!",
+            "I have the actual answer!",
+            "Follow me!"
+        ];
+
+        const yuniTexts = [
+            "Hold up...",
+            "You know who's the real dev here..."
+        ];
+
         let currentIndex = 0;
+        let radiantIndex = 0;
+        let yuniIndex = 0;
         let isTyping = false;
         let canAdvance = false;
         let typingTimeout = null;
         let currentText = '';
         let charIndex = 0;
+        let inRadiantMode = false;
+        let inYuniMode = false;
+        let currentTargetElement = null;
+        let currentArrowElement = null;
 
-        function typeText(text, callback) {
+        function typeText(text, targetElement, arrowElement, callback) {
             isTyping = true;
             canAdvance = false;
-            nextArrow.classList.remove('visible');
-            dialogueElement.textContent = '';
+            currentTargetElement = targetElement;
+            currentArrowElement = arrowElement;
+            arrowElement.classList.remove('visible');
+            targetElement.textContent = '';
             currentText = text;
             charIndex = 0;
 
             function typeChar() {
                 if (charIndex < currentText.length) {
-                    dialogueElement.textContent += currentText[charIndex];
+                    targetElement.textContent += currentText[charIndex];
                     charIndex++;
                     typingTimeout = setTimeout(typeChar, 50);
                 } else {
                     isTyping = false;
                     canAdvance = true;
-                    nextArrow.classList.add('visible');
+                    arrowElement.classList.add('visible');
                     if (callback) callback();
                 }
             }
@@ -214,10 +451,70 @@
         function skipTyping() {
             if (isTyping) {
                 clearTimeout(typingTimeout);
-                dialogueElement.textContent = currentText;
+                currentTargetElement.textContent = currentText;
                 isTyping = false;
                 canAdvance = true;
-                nextArrow.classList.add('visible');
+                currentArrowElement.classList.add('visible');
+            }
+        }
+
+        function startRadiantSequence() {
+            inRadiantMode = true;
+            radiantIndex = 0;
+            radiantContainer.classList.add('visible');
+
+            setTimeout(() => {
+                typeText(radiantTexts[0], radiantDialogue, radiantArrow);
+            }, 500);
+        }
+
+        function advanceRadiantDialogue() {
+            if (isTyping) {
+                skipTyping();
+                return;
+            }
+
+            if (!canAdvance) return;
+
+            if (radiantIndex < radiantTexts.length - 1) {
+                radiantIndex++;
+                typeText(radiantTexts[radiantIndex], radiantDialogue, radiantArrow);
+            } else {
+                // After last Radiant dialogue, start Yuni sequence
+                radiantArrow.classList.remove('visible');
+                canAdvance = false;
+                startYuniSequence();
+            }
+        }
+
+        function startYuniSequence() {
+            inRadiantMode = false;
+            inYuniMode = true;
+            yuniIndex = 0;
+            yuniContainer.classList.add('visible');
+
+            setTimeout(() => {
+                typeText(yuniTexts[0], yuniDialogue, yuniArrow);
+            }, 500);
+        }
+
+        function advanceYuniDialogue() {
+            if (isTyping) {
+                skipTyping();
+                return;
+            }
+
+            if (!canAdvance) return;
+
+            if (yuniIndex < yuniTexts.length - 1) {
+                yuniIndex++;
+                typeText(yuniTexts[yuniIndex], yuniDialogue, yuniArrow);
+            } else {
+                // After last Yuni dialogue, show both buttons
+                yuniArrow.classList.remove('visible');
+                canAdvance = false;
+                radiantButton.classList.add('visible');
+                yuniButton.classList.add('visible');
             }
         }
 
@@ -231,30 +528,37 @@
 
             if (currentIndex < dialogueTexts.length - 1) {
                 currentIndex++;
-                typeText(dialogueTexts[currentIndex], () => {
+                typeText(dialogueTexts[currentIndex], dialogueElement, nextArrow, () => {
                     if (currentIndex === dialogueTexts.length - 1) {
                         // Last dialogue - show button after click
                         canAdvance = true;
                     }
                 });
             } else {
-                // After last dialogue, show button
+                // After last dialogue, start Radiant sequence
                 nextArrow.classList.remove('visible');
                 canAdvance = false;
-                buttonElement.classList.add('visible');
+                startRadiantSequence();
             }
         }
 
         // Click handler for advancing dialogue
         document.addEventListener('click', (e) => {
-            // Don't advance if clicking the button
-            if (e.target === buttonElement) return;
-            advanceDialogue();
+            // Don't advance if clicking any button
+            if (e.target === buttonElement || e.target === radiantButton || e.target === yuniButton) return;
+
+            if (inYuniMode) {
+                advanceYuniDialogue();
+            } else if (inRadiantMode) {
+                advanceRadiantDialogue();
+            } else {
+                advanceDialogue();
+            }
         });
 
         // Start dialogue sequence after initial fade-in
         setTimeout(() => {
-            typeText(dialogueTexts[0]);
+            typeText(dialogueTexts[0], dialogueElement, nextArrow);
         }, 3000);
 
         // Play background music at 20% volume
